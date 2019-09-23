@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 
+
 if os.getenv('DEVELOPMENT'):
     development = True
 else:
@@ -26,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b9yi!j4_!o3ldl-jea4@^we2znm!5d0gf()%i5ou2=z&=hg*g*'
+SECRET_KEY = os.getenv('SECRET_KEY', "Secret key is missing") 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
