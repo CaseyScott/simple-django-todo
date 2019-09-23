@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 
-if os.environ.get('DEVELOPMENT'):
+if os.getenv('DEVELOPMENT'):
     development = True
 else:
     development = False
@@ -31,7 +31,7 @@ SECRET_KEY = 'b9yi!j4_!o3ldl-jea4@^we2znm!5d0gf()%i5ou2=z&=hg*g*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = [os.getenv('HOSTNAME'), '127.0.0.1']
+ALLOWED_HOSTS = [os.environ.get('HOSTNAME'), '127.0.0.1']
 
 host = os.getenv('SITE_HOST')
 if host:
@@ -91,7 +91,7 @@ if development:
         }
     }
 else:
-    DATABASES = {'default': dj_database_url.parse(os.getenv('DATABASE_URL'))}
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 
 
