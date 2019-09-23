@@ -31,7 +31,7 @@ SECRET_KEY = 'b9yi!j4_!o3ldl-jea4@^we2znm!5d0gf()%i5ou2=z&=hg*g*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = [os.getenv('HOSTNAME')]
+ALLOWED_HOSTS = [os.getenv('HOSTNAME'), '127.0.0.1']
 
 host = os.getenv('SITE_HOST')
 if host:
