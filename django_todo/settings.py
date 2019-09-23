@@ -31,10 +31,9 @@ SECRET_KEY = 'b9yi!j4_!o3ldl-jea4@^we2znm!5d0gf()%i5ou2=z&=hg*g*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = [os.environ.get('HOSTNAME'),
-                 os.environ.get('HOME')]
+ALLOWED_HOSTS = [os.getenv('HOSTNAME')]
 
-host = os.environ.get('SITE_HOST')
+host = os.getenv('SITE_HOST')
 if host:
     ALLOWED_HOSTS.append(host)
     
@@ -92,7 +91,7 @@ if development:
         }
     }
 else:
-    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+    DATABASES = {'default': dj_database_url.parse(os.getenv('DATABASE_URL'))}
 
 
 
