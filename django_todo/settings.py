@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', "Secret key is missing")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = [os.environ.get('HOSTNAME'), '127.0.0.1']
+ALLOWED_HOSTS = [os.getenv('HOSTNAME'), '127.0.0.1']
 
 host = os.getenv('SITE_HOST')
 if host:
@@ -92,7 +92,7 @@ if development:
         }
     }
 else:
-    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+    DATABASES = {'default': dj_database_url.parse(os.getenv('DATABASE_URL'))}
 
 
 # Password validation
