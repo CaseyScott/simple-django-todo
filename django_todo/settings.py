@@ -14,7 +14,7 @@ import os
 import dj_database_url
 
 
-if os.getenv('DEVELOPMENT'):
+if os.environ.get('DEVELOPMENT'):
     development = True
 else:
     development = False
@@ -27,12 +27,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', "Secret key is missing")
+SECRET_KEY = os.environ.get('SECRET_KEY', "Secret key is missing")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = [os.getenv('HOSTNAME'), '127.0.0.1']
+ALLOWED_HOSTS = [os.environ.get('HOSTNAME'), '127.0.0.1']
 
 host = os.getenv('SITE_HOST')
 if host:
@@ -92,7 +92,7 @@ if development:
         }
     }
 else:
-    DATABASES = {'default': dj_database_url.parse(os.getenv('DATABASE_URL'))}
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 
 # Password validation
