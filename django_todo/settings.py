@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', "Secret key is missing")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = [os.environ.get('HOSTNAME'), '127.0.0.1']
+ALLOWED_HOSTS = [os.environ.get('HOSTNAME'), "Hostname is missing"]
 
 host = os.getenv('SITE_HOST')
 if host:
